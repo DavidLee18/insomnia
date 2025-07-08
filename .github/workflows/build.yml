@@ -28,7 +28,9 @@ jobs:
     #   contents: write
     steps:
     - uses: actions/checkout@v4
-    - run: sudo apt-get install -y libxtst
+    - run: sudo apt-get update && sudo apt-get install -y libxtst6:i386
+    - run: locate libXtst
+    - run: ls -l /usr/lib/x86_64-linux-gnu/
     - name: Build
       run: cargo build --release --target x86_64-unknown-linux-gnu
     - run: mv target/x86_64-unknown-linux-gnu/release/insomnia insomnia-x86_64-unknown-linux-gnu
