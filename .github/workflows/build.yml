@@ -28,7 +28,8 @@ jobs:
     #   contents: write
     steps:
     - uses: actions/checkout@v4
-    - run: ln -s /usr/lib/x86_64-linux-gnu/libXtst.so /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+    - run: ln -s /usr/lib/x86_64-linux-gnu/libXtst.so.6 /usr/lib/x86_64-linux-gnu/libXtst.so
+    - run: ll | grep libXtst
     - name: Build
       run: cargo build --release --target x86_64-unknown-linux-gnu
     - run: mv target/x86_64-unknown-linux-gnu/release/insomnia insomnia-x86_64-unknown-linux-gnu
